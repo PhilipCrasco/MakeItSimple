@@ -1,4 +1,5 @@
 
+using MakeItSimple.WebApi.Features.Authentication;
 using MakeItSimple.WebApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -37,11 +38,16 @@ config =>
 
 
 ).AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "RDF MakeITSimple Api", Version = "v1" });
 
-    // Define the BearerAuth scheme in Swagger document
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
@@ -90,7 +96,6 @@ builder.Services.AddAuthentication(authOptions =>
         };
 
     });
-
 
 
 const string clientPermission = "_clientPermission";
