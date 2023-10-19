@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MakeItSimple.WebApi.Features.Users
 {
-    [Route("api/[controller]")]
+    [Route("api/User")]
     [ApiController]
     public class GetUserAsync : ControllerBase
     {
