@@ -15,7 +15,7 @@ namespace MakeItSimple.WebApi.Domain.Users
         public bool IsActive { get; set; } = true;
         public int ? AddedBy { get; set; }
         public int ? UserRoleId { get; set; }
-        public int DepartmentId { get; set; }
+        public int ? DepartmentId { get; set; }
 
         public virtual User AddedByUser { get; set; }
 
