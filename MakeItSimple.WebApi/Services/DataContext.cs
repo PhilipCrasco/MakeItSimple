@@ -15,7 +15,6 @@ namespace MakeItSimple.WebApi.Services
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public virtual DbSet<User> Users { get; set; } 
-
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
 
