@@ -25,7 +25,7 @@ namespace MakeItSimple.WebApi.Features.Users
             _mediator = mediator;        
         }
 
-        public class AddNewUserCommand : IRequest<Unit>
+        public class AddNewUserCommand : IRequest<AddUserResponse>
         {
 
             public string firstname { get; set; }
@@ -47,7 +47,13 @@ namespace MakeItSimple.WebApi.Features.Users
 
         }
 
-        public class Handler : IRequestHandler<AddNewUserCommand, Unit>
+        public class AddUserResponse
+        {
+            public Unit Unit { get; set; }
+            public User AddedUser { get; set; }
+        };
+
+        public class Handler : IRequestHandler<AddNewUserCommand, AddUserResponse>
         {
 
                 private readonly DataContext _context;
@@ -58,13 +64,13 @@ namespace MakeItSimple.WebApi.Features.Users
                 }
 
 
-                public async Task<Unit> Handle(AddNewUserCommand command, CancellationToken cancellationToken)
+                public async Task<AddUserResponse> Handle(AddNewUserCommand command, CancellationToken cancellationToken)
                 {
                     var UsernameAlreadyExist = await _context.Users.FirstOrDefaultAsync(x => x.Username == command.username, cancellationToken);
 
-                    var DepartmentNotFound = await _context.Users.AnyAsync(x => x.DepartmentId == command.department_id, cancellationToken);
+                    var DepartmentNotFound = await _context.Departments.AnyAsync(x => x.Id == command.department_id, cancellationToken);
 
-                    var UserRoleNotFound = await _context.Users.AnyAsync(x => x.UserRoleId == command.user_role_id, cancellationToken);
+                    var UserRoleNotFound = await _context.UserRole.AnyAsync(x => x.Id == command.user_role_id, cancellationToken);
 
                     if(UsernameAlreadyExist != null)
                     {
@@ -95,8 +101,8 @@ namespace MakeItSimple.WebApi.Features.Users
                         Username = command.username,
                         Password = BCrypt.Net.BCrypt.HashPassword(command.password),
                         UserRoleId = command.user_role_id,
+                        AddedBy  = command.added_by,
                         DepartmentId = command.department_id,
-                        IsActive = true
                         
                     };
 
@@ -104,7 +110,12 @@ namespace MakeItSimple.WebApi.Features.Users
                     await _context.Users.AddAsync(user , cancellationToken);
                     await _context.SaveChangesAsync(cancellationToken);
 
-                    return Unit.Value;
+                  return new AddUserResponse
+                  {
+                    Unit = Unit.Value,
+                    AddedUser = user,
+
+                  };
 
                 }
         }
@@ -127,7 +138,11 @@ namespace MakeItSimple.WebApi.Features.Users
                 var result = await _mediator.Send(command);
                 response.Success = true;
                 response.Status = StatusCodes.Status200OK;
-                response.Data = result;
+                response.Data = new
+                {
+                    result.Unit,
+                    result.AddedUser
+                };
                 response.Messages.Add("User added Successfully");
                 return Ok(response);
 

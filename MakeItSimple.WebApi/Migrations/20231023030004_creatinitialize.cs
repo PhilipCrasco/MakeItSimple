@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MakeItSimple.WebApi.Migrations
 {
     /// <inheritdoc />
-    public partial class createinitial : Migration
+    public partial class creatinitialize : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -21,10 +21,11 @@ namespace MakeItSimple.WebApi.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    department_name = table.Column<int>(type: "int", nullable: false),
+                    department_name = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     created_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     updated_at = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    added_by = table.Column<int>(type: "int", nullable: false),
+                    added_by = table.Column<int>(type: "int", nullable: true),
                     modified_by = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     is_active = table.Column<bool>(type: "tinyint(1)", nullable: false)
@@ -77,7 +78,7 @@ namespace MakeItSimple.WebApi.Migrations
                     is_active = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     added_by = table.Column<int>(type: "int", nullable: true),
                     user_role_id = table.Column<int>(type: "int", nullable: true),
-                    department_id = table.Column<int>(type: "int", nullable: false)
+                    department_id = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -86,8 +87,7 @@ namespace MakeItSimple.WebApi.Migrations
                         name: "fk_users_departments_department_id",
                         column: x => x.department_id,
                         principalTable: "departments",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id");
                     table.ForeignKey(
                         name: "fk_users_user_role_user_role_id",
                         column: x => x.user_role_id,
@@ -110,34 +110,29 @@ namespace MakeItSimple.WebApi.Migrations
             migrationBuilder.CreateIndex(
                 name: "ix_user_role_added_by",
                 table: "user_role",
-                column: "added_by",
-                unique: true);
+                column: "added_by");
 
             migrationBuilder.CreateIndex(
                 name: "ix_users_added_by",
                 table: "users",
-                column: "added_by",
-                unique: true);
+                column: "added_by");
 
             migrationBuilder.CreateIndex(
                 name: "ix_users_department_id",
                 table: "users",
-                column: "department_id",
-                unique: true);
+                column: "department_id");
 
             migrationBuilder.CreateIndex(
                 name: "ix_users_user_role_id",
                 table: "users",
-                column: "user_role_id",
-                unique: true);
+                column: "user_role_id");
 
             migrationBuilder.AddForeignKey(
                 name: "fk_departments_users_added_by",
                 table: "departments",
                 column: "added_by",
                 principalTable: "users",
-                principalColumn: "id",
-                onDelete: ReferentialAction.Cascade);
+                principalColumn: "id");
 
             migrationBuilder.AddForeignKey(
                 name: "fk_user_role_users_added_by",

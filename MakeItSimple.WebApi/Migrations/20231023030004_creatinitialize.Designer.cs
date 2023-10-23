@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MakeItSimple.WebApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231017024459_updateDepartment")]
-    partial class updateDepartment
+    [Migration("20231023030004_creatinitialize")]
+    partial class creatinitialize
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,7 +29,7 @@ namespace MakeItSimple.WebApi.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    b.Property<int>("AddedBy")
+                    b.Property<int?>("AddedBy")
                         .HasColumnType("int")
                         .HasColumnName("added_by");
 
@@ -78,7 +78,7 @@ namespace MakeItSimple.WebApi.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("created_at");
 
-                    b.Property<int>("DepartmentId")
+                    b.Property<int?>("DepartmentId")
                         .HasColumnType("int")
                         .HasColumnName("department_id");
 
@@ -178,8 +178,6 @@ namespace MakeItSimple.WebApi.Migrations
                     b.HasOne("MakeItSimple.WebApi.Domain.Users.User", "AddedByUser")
                         .WithOne()
                         .HasForeignKey("MakeItSimple.WebApi.Domain.Setup.Department", "AddedBy")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("fk_departments_users_added_by");
 
                     b.Navigation("AddedByUser");
@@ -195,8 +193,6 @@ namespace MakeItSimple.WebApi.Migrations
                     b.HasOne("MakeItSimple.WebApi.Domain.Setup.Department", "Department")
                         .WithOne("User")
                         .HasForeignKey("MakeItSimple.WebApi.Domain.Users.User", "DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("fk_users_departments_department_id");
 
                     b.HasOne("MakeItSimple.WebApi.Domain.Users.UserRole", "UserRole")
