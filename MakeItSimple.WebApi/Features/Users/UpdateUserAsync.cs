@@ -63,19 +63,19 @@ namespace MakeItSimple.WebApi.Features.Users
                     throw new UserIdNotFoundException();
                 }
 
-                if(userRoleNotFound != null)
+                if(userRoleNotFound == null)
                 {
                     throw new UserRoleNotFoundException();
                 }
 
-                if (departmentNotFound != null)
+                if (departmentNotFound == null)
                 {
                     throw new DepartmentNotFoundException();
                 }
 
                 var usernameAlreadyExist = await _context.Users.FirstOrDefaultAsync(x => x.Username == command.username, cancellationToken);
 
-                if(usernameAlreadyExist != null)
+                if(usernameAlreadyExist != null && users.Username != command.username)
                 {
                     throw new UserAlreadyExistException(command.username);
                 }
@@ -86,6 +86,9 @@ namespace MakeItSimple.WebApi.Features.Users
                 users.DepartmentId = command.department_id;
                 users.UserRoleId = command.user_role_id;
                 users.UpdatedAt = DateTime.Now;
+
+
+                await _context.SaveChangesAsync(cancellationToken);
 
                 return Unit.Value;
             }
