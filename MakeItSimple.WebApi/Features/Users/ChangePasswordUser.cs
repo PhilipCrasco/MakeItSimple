@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MakeItSimple.WebApi.Features.Users
 {
-    [Route("api/[controller]")]
+    [Route("api/User")]
     [ApiController]
     public class ChangePasswordUser : ControllerBase
     {
@@ -27,8 +27,6 @@ namespace MakeItSimple.WebApi.Features.Users
             public string new_password { get; set;}
             public string confirm_password { get; set; }
             public string modified_by { get; set; }
-
-
 
         }
 
