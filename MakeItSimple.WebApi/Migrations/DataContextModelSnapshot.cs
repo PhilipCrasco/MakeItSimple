@@ -115,7 +115,6 @@ namespace MakeItSimple.WebApi.Migrations
                         .HasDatabaseName("ix_users_added_by");
 
                     b.HasIndex("DepartmentId")
-                        .IsUnique()
                         .HasDatabaseName("ix_users_department_id");
 
                     b.HasIndex("UserRoleId")
@@ -188,8 +187,8 @@ namespace MakeItSimple.WebApi.Migrations
                         .HasConstraintName("fk_users_users_added_by_user_id");
 
                     b.HasOne("MakeItSimple.WebApi.Domain.Setup.Department", "Department")
-                        .WithOne("User")
-                        .HasForeignKey("MakeItSimple.WebApi.Domain.Users.User", "DepartmentId")
+                        .WithMany("Users")
+                        .HasForeignKey("DepartmentId")
                         .HasConstraintName("fk_users_departments_department_id");
 
                     b.HasOne("MakeItSimple.WebApi.Domain.Users.UserRole", "UserRole")
@@ -218,7 +217,7 @@ namespace MakeItSimple.WebApi.Migrations
 
             modelBuilder.Entity("MakeItSimple.WebApi.Domain.Setup.Department", b =>
                 {
-                    b.Navigation("User");
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("MakeItSimple.WebApi.Domain.Users.UserRole", b =>

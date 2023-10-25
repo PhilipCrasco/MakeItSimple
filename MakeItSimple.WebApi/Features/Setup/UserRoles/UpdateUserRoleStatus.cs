@@ -49,6 +49,7 @@ namespace MakeItSimple.WebApi.Features.Setup.UserRoles
 
                 }
 
+
                 if(userRoles.IsActive == true && userRoles.Permissions.Count <= 0)
                 {
                     throw new UserRoleDeactivationException();

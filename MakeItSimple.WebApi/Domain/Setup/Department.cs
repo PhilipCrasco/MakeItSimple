@@ -16,7 +16,7 @@ namespace MakeItSimple.WebApi.Domain.Setup
         public string ModifiedBy { get; set; }
         public bool IsActive { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual IEnumerable<User> Users { get; set; } = new List<User>();
         public virtual User AddedByUser { get; set; }
     }
 }

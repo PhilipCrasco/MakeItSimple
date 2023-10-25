@@ -38,7 +38,7 @@ namespace MakeItSimple.WebApi.Features.Users
 
             public string confirm_password { get; set; }
 
-            public int added_by { get; set; }
+            public int ? added_by { get; set; }
 
             public int? user_role_id { get; set; }
 
@@ -72,12 +72,12 @@ namespace MakeItSimple.WebApi.Features.Users
 
                     var UserRoleNotFound = await _context.UserRole.AnyAsync(x => x.Id == command.user_role_id, cancellationToken);
 
-                    if(UsernameAlreadyExist != null)
-                    {
-                        throw new UserAlreadyExistException(command.username);
-                    }
+                if (UsernameAlreadyExist != null)
+                {
+                    throw new UserAlreadyExistException(command.username);
+                }
 
-                    if(!DepartmentNotFound && command.department_id.HasValue)
+                if (!DepartmentNotFound && command.department_id.HasValue)
                     {
                         throw new DepartmentNotFoundException();
                     }

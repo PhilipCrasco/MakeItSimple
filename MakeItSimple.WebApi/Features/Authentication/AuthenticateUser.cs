@@ -123,8 +123,8 @@ namespace MakeItSimple.WebApi.Features.Authentication
                         Subject = new ClaimsIdentity(new[]
                         {
                              new Claim("id", user.Id.ToString()),
-                             new Claim(ClaimTypes.Name , user.Firstname),
-                              new Claim(ClaimTypes.Name , user.Lastname)
+                             new Claim(ClaimTypes.Name , ($"{user.Firstname} {user.Lastname}"))
+                             
                         }),
                         Expires = DateTime.UtcNow.AddDays(1),
                         Issuer = issuer,

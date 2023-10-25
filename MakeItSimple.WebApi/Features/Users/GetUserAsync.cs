@@ -146,7 +146,7 @@ namespace MakeItSimple.WebApi.Features.Users
                     },
 
               
-            };
+                };
 
                 result.Messages = new List<string>(response.Messages) { "successfully fetch data" };
 
