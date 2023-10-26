@@ -87,3 +87,9 @@ D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\obj\Debug\n
 D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\obj\Debug\net7.0\MakeItSimple.WebApi.pdb
 D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\obj\Debug\net7.0\MakeItSimple.WebApi.genruntimeconfig.cache
 D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\obj\Debug\net7.0\ref\MakeItSimple.WebApi.dll
+D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\bin\Debug\net7.0\Castle.Core.dll
+D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\bin\Debug\net7.0\Moq.dll
+D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\bin\Debug\net7.0\xunit.abstractions.dll
+D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\bin\Debug\net7.0\xunit.assert.dll
+D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\bin\Debug\net7.0\xunit.core.dll
+D:\PhilipLorenz\WPF-TUTORIAL\MakeItSimple.WebApi\MakeItSimple.WebApi\bin\Debug\net7.0\xunit.execution.dotnet.dll

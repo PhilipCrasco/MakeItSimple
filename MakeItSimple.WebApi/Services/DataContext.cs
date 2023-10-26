@@ -41,14 +41,14 @@ namespace MakeItSimple.WebApi.Services
             .HasForeignKey<User>(u => u.AddedBy);
 
             modelBuilder.Entity<UserRole>()
-            .HasOne(u => u.AddedByUser)
-            .WithOne()
-            .HasForeignKey<UserRole>(u => u.AddedBy);
-
-            modelBuilder.Entity<Department>()
            .HasOne(u => u.AddedByUser)
            .WithOne()
-           .HasForeignKey<Department>(u => u.AddedBy);
+           .HasForeignKey<UserRole>(u => u.AddedBy);
+
+           modelBuilder.Entity<Department>()
+          .HasOne(u => u.AddedByUser)
+          .WithOne()
+          .HasForeignKey<Department>(u => u.AddedBy);
 
 
 

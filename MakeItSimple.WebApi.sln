@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeItSimple.WebApi", "MakeItSimple.WebApi\MakeItSimple.WebApi.csproj", "{A90446A7-A22A-4FC6-98F9-EAED5A32C3D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MakeItSimple.WebApi", "MakeItSimple.WebApi\MakeItSimple.WebApi.csproj", "{A90446A7-A22A-4FC6-98F9-EAED5A32C3D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{885F1303-98E5-4DAD-B5B5-4237F6AA9345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedbackService.Api.Tests", "FeedbackService.Api.Tests\FeedbackService.Api.Tests.csproj", "{CA294511-10BC-4256-943F-EE0D4E35FB33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{A90446A7-A22A-4FC6-98F9-EAED5A32C3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A90446A7-A22A-4FC6-98F9-EAED5A32C3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A90446A7-A22A-4FC6-98F9-EAED5A32C3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA294511-10BC-4256-943F-EE0D4E35FB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA294511-10BC-4256-943F-EE0D4E35FB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA294511-10BC-4256-943F-EE0D4E35FB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA294511-10BC-4256-943F-EE0D4E35FB33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA294511-10BC-4256-943F-EE0D4E35FB33} = {885F1303-98E5-4DAD-B5B5-4237F6AA9345}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9AB6DA79-0B35-46E7-A0FE-922DFE66B846}

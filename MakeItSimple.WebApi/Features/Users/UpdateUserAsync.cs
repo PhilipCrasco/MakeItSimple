@@ -1,10 +1,7 @@
 ﻿using MakeItSimple.WebApi.Common;
-using MakeItSimple.WebApi.Domain.Setup;
-using MakeItSimple.WebApi.Features.ErrorException.SetupException.DepartmentException;
 using MakeItSimple.WebApi.Features.ErrorException.UserException;
 using MakeItSimple.WebApi.Services;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

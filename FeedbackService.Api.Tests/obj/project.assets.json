@@ -2902,10 +2902,12 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.12",
           "Microsoft.AspNetCore.OpenApi": "7.0.12",
           "Microsoft.EntityFrameworkCore": "7.0.12",
+          "Moq": "4.20.69",
           "MySql.EntityFrameworkCore": "7.0.5",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
           "Pomelo.EntityFrameworkCore.MySql.Design": "1.1.2",
-          "Swashbuckle.AspNetCore": "6.5.0"
+          "Swashbuckle.AspNetCore": "6.5.0",
+          "xunit": "2.5.3"
         },
         "compile": {
           "bin/placeholder/MakeItSimple.WebApi.dll": {}
@@ -8883,5 +8885,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\PhilipLorenz\\WPF-TUTORIAL\\MakeItSimple.WebApi\\FeedbackService.Api.Tests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

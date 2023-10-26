@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qvJjnuwp8aW90XH6ZCW63rmSbtIKjqZg00hA8JigRO4/DthzXAgYO5+nYsYwEsB5JzzhsvT0txS7lavibTM5cg==",
+  "dgSpecHash": "eUPlljIzyOUu0Yqmi+ffdwPXhqBAhRX60LuM1i5tuLajQcD16rgBM/l6IL62gmZt/yeJdCsygvuEOQjMTH9cjg==",
   "success": true,
   "projectFilePath": "D:\\PhilipLorenz\\WPF-TUTORIAL\\MakeItSimple.WebApi\\FeedbackService.Api.Tests\\FeedbackService.Api.Tests.csproj",
   "expectedPackageFiles": [
@@ -165,5 +165,12 @@
     "C:\\Users\\philipcrasco\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.5\\xunit.runner.visualstudio.2.4.5.nupkg.sha512",
     "C:\\Users\\philipcrasco\\.nuget\\packages\\zstdsharp.port\\0.7.1\\zstdsharp.port.0.7.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\PhilipLorenz\\WPF-TUTORIAL\\MakeItSimple.WebApi\\FeedbackService.Api.Tests\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

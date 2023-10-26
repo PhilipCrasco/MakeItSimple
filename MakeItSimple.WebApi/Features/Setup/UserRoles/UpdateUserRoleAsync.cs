@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MakeItSimple.WebApi.Features.Setup.UserRoles
 {
-    [Route("api/[controller]")]
+    [Route("api/UserRole")]
     [ApiController]
     public class UpdateUserRoleAsync : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace MakeItSimple.WebApi.Features.Setup.UserRoles
         public class UpdateUserRoleCommand : IRequest<Unit>
         {
             public int user_role_id { get; set; }
-            public string user_role_name { get; set; }
+            public string role_name { get; set; }
             public string modified_by { get; set; }
         }
 
@@ -41,24 +41,25 @@ namespace MakeItSimple.WebApi.Features.Setup.UserRoles
 
                 var userRoles = await _context.UserRole.FirstOrDefaultAsync(x => x.Id == command.user_role_id, cancellationToken);
 
-                var userRoleNotExist = await _context.UserRole.FirstOrDefaultAsync(x => x.UserRoleName == command.user_role_name, cancellationToken);
+                var userRoleNotExist = await _context.UserRole.FirstOrDefaultAsync(x => x.UserRoleName == command.role_name, cancellationToken);
 
                 if (userRoles == null)
                 {
                     throw new UserRoleIdNotFoundException();
                 }
 
-                if (userRoleNotExist != null )
-                {
-                    throw new UserRoleAlreadyExistException();
-                }
-
-                if (userRoles.UserRoleName == command.user_role_name)
+                if (userRoles.UserRoleName == command.role_name)
                 {
                     throw new NoChangesException();
                 }
 
-                userRoles.UserRoleName = command.user_role_name;
+
+                if (userRoleNotExist != null)
+                {
+                    throw new UserRoleAlreadyExistException();
+                }
+
+                userRoles.UserRoleName = command.role_name;
                 userRoles.ModifiedBy = command.modified_by;
                 userRoles.UpdatedAt = DateTime.Now;
                 

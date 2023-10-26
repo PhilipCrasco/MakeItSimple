@@ -25,7 +25,7 @@ namespace MakeItSimple.WebApi.Features.Users
             _mediator = mediator;        
         }
 
-        public class AddNewUserCommand : IRequest<AddUserResponse>
+        public class AddNewUserCommand : IRequest<Unit>
         {
 
             public string firstname { get; set; }
@@ -38,7 +38,7 @@ namespace MakeItSimple.WebApi.Features.Users
 
             public string confirm_password { get; set; }
 
-            public int added_by { get; set; }
+            public int ? added_by { get; set; }
 
             public int? user_role_id { get; set; }
 
@@ -47,13 +47,7 @@ namespace MakeItSimple.WebApi.Features.Users
 
         }
 
-        public class AddUserResponse
-        {
-            public Unit Unit { get; set; }
-            public User AddedUser { get; set; }
-        };
-
-        public class Handler : IRequestHandler<AddNewUserCommand, AddUserResponse>
+        public class Handler : IRequestHandler<AddNewUserCommand, Unit>
         {
 
                 private readonly DataContext _context;
@@ -64,7 +58,7 @@ namespace MakeItSimple.WebApi.Features.Users
                 }
 
 
-                public async Task<AddUserResponse> Handle(AddNewUserCommand command, CancellationToken cancellationToken)
+                public async Task<Unit> Handle(AddNewUserCommand command, CancellationToken cancellationToken)
                 {
                     var UsernameAlreadyExist = await _context.Users.FirstOrDefaultAsync(x => x.Username == command.username, cancellationToken);
 
@@ -72,12 +66,12 @@ namespace MakeItSimple.WebApi.Features.Users
 
                     var UserRoleNotFound = await _context.UserRole.AnyAsync(x => x.Id == command.user_role_id, cancellationToken);
 
-                    if(UsernameAlreadyExist != null)
-                    {
-                        throw new UserAlreadyExistException(command.username);
-                    }
+                if (UsernameAlreadyExist != null)
+                {
+                    throw new UserAlreadyExistException(command.username);
+                }
 
-                    if(!DepartmentNotFound && command.department_id.HasValue)
+                if (!DepartmentNotFound && command.department_id.HasValue)
                     {
                         throw new DepartmentNotFoundException();
                     }
@@ -110,13 +104,8 @@ namespace MakeItSimple.WebApi.Features.Users
                     await _context.Users.AddAsync(user , cancellationToken);
                     await _context.SaveChangesAsync(cancellationToken);
 
-                  return new AddUserResponse
-                  {
-                    Unit = Unit.Value,
-                    AddedUser = user,
 
-                  };
-
+                    return Unit.Value;
                 }
         }
 
@@ -138,11 +127,7 @@ namespace MakeItSimple.WebApi.Features.Users
                 var result = await _mediator.Send(command);
                 response.Success = true;
                 response.Status = StatusCodes.Status200OK;
-                response.Data = new
-                {
-                    result.Unit,
-                    result.AddedUser
-                };
+                response.Data = result;
                 response.Messages.Add("User added Successfully");
                 return Ok(response);
 
@@ -150,6 +135,7 @@ namespace MakeItSimple.WebApi.Features.Users
             catch (Exception e)
             {
                response.Success = false;
+                response.Status = StatusCodes.Status409Conflict;
                 response.Messages.Add(e.Message);
                 return Conflict(response);
 
