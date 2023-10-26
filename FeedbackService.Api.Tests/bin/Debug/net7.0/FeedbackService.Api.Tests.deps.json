@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v7.0": {
       "FeedbackService.Api.Tests/1.0.0": {
         "dependencies": {
+          "FakeItEasy": "7.4.0",
           "MakeItSimple.WebApi": "1.0.0",
           "MediatR": "12.1.1",
           "MediatR.Extensions.Microsoft.DependencyInjectionFixed": "5.1.2",
@@ -74,6 +75,17 @@
           "lib/net6.0/EFCore.NamingConventions.dll": {
             "assemblyVersion": "7.0.2.0",
             "fileVersion": "7.0.2.0"
+          }
+        }
+      },
+      "FakeItEasy/7.4.0": {
+        "dependencies": {
+          "Castle.Core": "5.1.1"
+        },
+        "runtime": {
+          "lib/net5.0/FakeItEasy.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.4.0.0"
           }
         }
       },
@@ -1729,6 +1741,13 @@
       "sha512": "sha512-zJz6+YohdMHBFwi54RyH4bWMVTV6qHhIkGl7TWDyVE7HfOxM0gCux9cDg8yCTmG2ie99yY8XYlIaTGl/TNMnnQ==",
       "path": "efcore.namingconventions/7.0.2",
       "hashPath": "efcore.namingconventions.7.0.2.nupkg.sha512"
+    },
+    "FakeItEasy/7.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HSa4UIg3LbjzuTaYOGsxPlTFdPa1sv9yrbAPF8D68FcGjFquIrnXalzT6n8iJhc1kXkMndB82uNcz/naQ3kCgw==",
+      "path": "fakeiteasy/7.4.0",
+      "hashPath": "fakeiteasy.7.4.0.nupkg.sha512"
     },
     "FluentValidation/11.7.1": {
       "type": "package",

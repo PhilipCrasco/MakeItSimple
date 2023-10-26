@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iDeSjVwsoDUai/mK73PEtWJZCqebZDMDyLXxmIefI0eR+f752typArus2+aRiDLajQq7uAjYq1KRyUyKlXsk6g==",
+  "dgSpecHash": "eUPlljIzyOUu0Yqmi+ffdwPXhqBAhRX60LuM1i5tuLajQcD16rgBM/l6IL62gmZt/yeJdCsygvuEOQjMTH9cjg==",
   "success": true,
   "projectFilePath": "D:\\PhilipLorenz\\WPF-TUTORIAL\\MakeItSimple.WebApi\\FeedbackService.Api.Tests\\FeedbackService.Api.Tests.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\philipcrasco\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\philipcrasco\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\philipcrasco\\.nuget\\packages\\efcore.namingconventions\\7.0.2\\efcore.namingconventions.7.0.2.nupkg.sha512",
+    "C:\\Users\\philipcrasco\\.nuget\\packages\\fakeiteasy\\7.4.0\\fakeiteasy.7.4.0.nupkg.sha512",
     "C:\\Users\\philipcrasco\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\philipcrasco\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
     "C:\\Users\\philipcrasco\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",

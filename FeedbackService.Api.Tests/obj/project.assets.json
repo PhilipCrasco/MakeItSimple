@@ -80,6 +80,22 @@
           "lib/net6.0/EFCore.NamingConventions.dll": {}
         }
       },
+      "FakeItEasy/7.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Castle.Core": "4.3.1"
+        },
+        "compile": {
+          "lib/net5.0/FakeItEasy.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/FakeItEasy.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "FluentValidation/11.7.1": {
         "type": "package",
         "compile": {
@@ -3053,6 +3069,26 @@
         "efcore.namingconventions.7.0.2.nupkg.sha512",
         "efcore.namingconventions.nuspec",
         "lib/net6.0/EFCore.NamingConventions.dll"
+      ]
+    },
+    "FakeItEasy/7.4.0": {
+      "sha512": "HSa4UIg3LbjzuTaYOGsxPlTFdPa1sv9yrbAPF8D68FcGjFquIrnXalzT6n8iJhc1kXkMndB82uNcz/naQ3kCgw==",
+      "type": "package",
+      "path": "fakeiteasy/7.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fakeiteasy.7.4.0.nupkg.sha512",
+        "fakeiteasy.nuspec",
+        "images/FakeItEasy.png",
+        "lib/net45/FakeItEasy.dll",
+        "lib/net45/FakeItEasy.xml",
+        "lib/net5.0/FakeItEasy.dll",
+        "lib/net5.0/FakeItEasy.xml",
+        "lib/netstandard2.0/FakeItEasy.dll",
+        "lib/netstandard2.0/FakeItEasy.xml",
+        "lib/netstandard2.1/FakeItEasy.dll",
+        "lib/netstandard2.1/FakeItEasy.xml"
       ]
     },
     "FluentValidation/11.7.1": {
@@ -8739,6 +8775,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "FakeItEasy >= 7.4.0",
       "MakeItSimple.WebApi >= 1.0.0",
       "MediatR >= 12.1.1",
       "MediatR.Extensions.Microsoft.DependencyInjectionFixed >= 5.1.2",
@@ -8792,6 +8829,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "FakeItEasy": {
+            "target": "Package",
+            "version": "[7.4.0, )"
+          },
           "MediatR": {
             "target": "Package",
             "version": "[12.1.1, )"
